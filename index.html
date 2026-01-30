@@ -1,0 +1,1083 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prince Jeshurun | Computer Science Graduate</title>
+    <meta name="description" content="Result-oriented Computer Science graduate with CGPA 3.86, specializing in Data Analytics, Cloud Computing, and Machine Learning.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Unbounded:wght@200..900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+
+        :root {
+            --hue: 255;
+            --first-color: hsl(var(--hue), 60%, 64%);
+            --first-color-alt: hsl(var(--hue), 80%, 56%);
+            --first-color-alt-2: hsl(var(--hue), 60%, 56%);
+            --first-color-light: hsl(var(--hue), 60%, 74%);
+            --title-color: hsl(240, 8%, 95%);
+            --text-color: hsl(240, 8%, 70%);
+            --text-color-light: hsl(240, 8%, 50%);
+            --body-color: hsl(240, 100%, 2%);
+            --container-color: hsl(240, 8%, 6%);
+            --header-height: 4rem;
+            --body-font: "Montserrat", sans-serif;
+            --second-font: "Unbounded", sans-serif;
+            --biggest-font-size: 2.5rem;
+            --bigger-font-size: 2rem;
+            --h1-font-size: 1.75rem;
+            --h2-font-size: 1.5rem;
+            --h3-font-size: 1.25rem;
+            --normal-font-size: 1rem;
+            --small-font-size: 0.875rem;
+        }
+
+        @media screen and (min-width: 1150px) {
+            :root {
+                --biggest-font-size: 3.5rem;
+                --bigger-font-size: 2.5rem;
+                --h1-font-size: 2.5rem;
+                --h2-font-size: 2rem;
+                --h3-font-size: 1.5rem;
+                --normal-font-size: 1.125rem;
+                --small-font-size: 1rem;
+            }
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--body-font);
+            font-size: var(--normal-font-size);
+            background-color: var(--body-color);
+            color: var(--text-color);
+            line-height: 1.7;
+        }
+
+        h1, h2, h3, h4 {
+            color: var(--title-color);
+            font-family: var(--second-font);
+            font-weight: 600;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--title-color);
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--first-color);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .grid {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .section {
+            padding: 6rem 0 2rem;
+        }
+
+        .section__title {
+            text-align: center;
+            font-size: var(--h1-font-size);
+            margin-bottom: 3rem;
+        }
+
+        .section__title span {
+            color: var(--first-color);
+        }
+
+        /* Header & Nav */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: var(--header-height);
+            background: transparent;
+            z-index: 100;
+            transition: background 0.3s ease;
+        }
+
+        .header.scrolled {
+            background: var(--body-color);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+        }
+
+        .nav__logo {
+            font-family: var(--second-font);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--title-color);
+        }
+
+        .nav__logo span {
+            color: var(--first-color);
+        }
+
+        .nav__list {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav__link {
+            color: var(--text-color);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav__link:hover,
+        .nav__link.active {
+            color: var(--first-color);
+        }
+
+        .nav__toggle {
+            display: none;
+            font-size: 1.5rem;
+            color: var(--title-color);
+            cursor: pointer;
+        }
+
+        /* Home Section */
+        .home {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: var(--header-height);
+        }
+
+        .home__container {
+            grid-template-columns: 1fr;
+            align-items: center;
+        }
+
+        @media screen and (min-width: 1150px) {
+            .home__container {
+                grid-template-columns: 1.2fr 0.8fr;
+            }
+        }
+
+        .home__content {
+            text-align: center;
+        }
+
+        @media screen and (min-width: 1150px) {
+            .home__content {
+                text-align: left;
+            }
+        }
+
+        .home__greeting {
+            font-size: var(--normal-font-size);
+            color: var(--first-color);
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .home__title {
+            font-size: var(--biggest-font-size);
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        .home__title span {
+            color: var(--first-color);
+        }
+
+        .home__description {
+            font-size: var(--normal-font-size);
+            margin-bottom: 2rem;
+            max-width: 600px;
+        }
+
+        @media screen and (min-width: 1150px) {
+            .home__description {
+                margin: 0 0 2rem 0;
+            }
+        }
+
+        .home__buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        @media screen and (min-width: 1150px) {
+            .home__buttons {
+                justify-content: flex-start;
+            }
+        }
+
+        .button {
+            padding: 0.875rem 2rem;
+            border-radius: 0.5rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+
+        .button--primary {
+            background: var(--first-color);
+            color: white;
+            border: 2px solid var(--first-color);
+        }
+
+        .button--primary:hover {
+            background: var(--first-color-alt);
+            border-color: var(--first-color-alt);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(168, 85, 247, 0.3);
+        }
+
+        .button--outline {
+            background: transparent;
+            color: var(--title-color);
+            border: 2px solid var(--first-color);
+        }
+
+        .button--outline:hover {
+            background: var(--first-color);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .home__image {
+            display: none;
+        }
+
+        @media screen and (min-width: 1150px) {
+            .home__image {
+                display: block;
+            }
+        }
+
+        .blob {
+            width: 400px;
+            height: 400px;
+            background: linear-gradient(135deg, var(--first-color), var(--first-color-alt));
+            border-radius: 50%;
+            filter: blur(100px);
+            position: relative;
+            animation: blob 8s ease-in-out infinite;
+        }
+
+        @keyframes blob {
+            0%, 100% {
+                transform: translate(0, 0) scale(1);
+            }
+            25% {
+                transform: translate(20px, -30px) scale(1.1);
+            }
+            50% {
+                transform: translate(-20px, 20px) scale(0.9);
+            }
+            75% {
+                transform: translate(30px, 10px) scale(1.05);
+            }
+        }
+
+        .home__image-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: var(--second-font);
+            font-size: 1.25rem;
+            color: white;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        /* About Section */
+        .about__container {
+            grid-template-columns: 1fr;
+        }
+
+        @media screen and (min-width: 768px) {
+            .about__container {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .about__data {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .about__description {
+            text-align: left;
+            color: var(--text-color);
+        }
+
+        .about__info {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .about__box {
+            background: var(--container-color);
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            border: 1px solid var(--first-color-alt-2);
+            transition: all 0.3s ease;
+        }
+
+        .about__box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(168, 85, 247, 0.1);
+        }
+
+        .about__title {
+            font-size: var(--small-font-size);
+            color: var(--first-color);
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .about__subtitle {
+            font-size: var(--normal-font-size);
+            color: var(--title-color);
+            font-weight: 600;
+        }
+
+        /* Projects Section */
+        .projects__container {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+
+        .projects__card {
+            background: var(--container-color);
+            border-radius: 1rem;
+            overflow: hidden;
+            border: 1px solid var(--first-color-alt-2);
+            transition: all 0.3s ease;
+        }
+
+        .projects__card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .projects__image {
+            height: 200px;
+            background: linear-gradient(135deg, var(--first-color), var(--first-color-alt));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+        }
+
+        .projects__content {
+            padding: 1.5rem;
+        }
+
+        .projects__title {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: var(--title-color);
+        }
+
+        .projects__role {
+            font-size: var(--small-font-size);
+            color: var(--first-color);
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .projects__tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .projects__tag {
+            background: var(--first-color-alt-2);
+            color: var(--title-color);
+            padding: 0.25rem 0.75rem;
+            border-radius: 0.25rem;
+            font-size: var(--small-font-size);
+        }
+
+        .projects__description {
+            font-size: var(--normal-font-size);
+            color: var(--text-color);
+        }
+
+        /* Skills Section */
+        .skills__container {
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        }
+
+        .skills__card {
+            background: var(--container-color);
+            border-radius: 1rem;
+            padding: 2rem;
+            border: 1px solid var(--first-color-alt-2);
+            transition: all 0.3s ease;
+        }
+
+        .skills__card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(168, 85, 247, 0.1);
+        }
+
+        .skills__icon {
+            font-size: 2.5rem;
+            color: var(--first-color);
+            margin-bottom: 1rem;
+        }
+
+        .skills__title {
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            color: var(--title-color);
+        }
+
+        .skills__list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .skills__item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--text-color);
+            font-size: var(--normal-font-size);
+        }
+
+        .skills__level {
+            padding: 0.25rem 0.75rem;
+            border-radius: 0.25rem;
+            font-size: var(--small-font-size);
+            font-weight: 500;
+        }
+
+        .skills__level.advanced {
+            background: rgba(34, 197, 94, 0.2);
+            color: #22c55e;
+        }
+
+        .skills__level.intermediate {
+            background: rgba(59, 130, 246, 0.2);
+            color: #3b82f6;
+        }
+
+        .skills__level.novice {
+            background: rgba(234, 179, 8, 0.2);
+            color: #eab308;
+        }
+
+        /* Experience Section */
+        .experience__container {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .experience__card {
+            background: var(--container-color);
+            border-radius: 1rem;
+            padding: 2rem;
+            border-left: 4px solid var(--first-color);
+            transition: all 0.3s ease;
+        }
+
+        .experience__card:hover {
+            transform: translateX(10px);
+            box-shadow: 0 10px 30px rgba(168, 85, 247, 0.1);
+        }
+
+        .experience__header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .experience__title {
+            font-size: 1.25rem;
+            color: var(--title-color);
+        }
+
+        .experience__date {
+            font-size: var(--small-font-size);
+            color: var(--first-color);
+            font-weight: 500;
+        }
+
+        .experience__company {
+            color: var(--text-color-light);
+            font-size: var(--normal-font-size);
+            margin-bottom: 1rem;
+        }
+
+        .experience__description {
+            color: var(--text-color);
+            line-height: 1.8;
+        }
+
+        /* Contact Section */
+        .contact__container {
+            grid-template-columns: 1fr;
+        }
+
+        @media screen and (min-width: 768px) {
+            .contact__container {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .contact__info {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .contact__card {
+            background: var(--container-color);
+            border-radius: 1rem;
+            padding: 2rem;
+            border: 1px solid var(--first-color-alt-2);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .contact__card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(168, 85, 247, 0.1);
+        }
+
+        .contact__icon {
+            font-size: 2rem;
+            color: var(--first-color);
+            margin-bottom: 1rem;
+        }
+
+        .contact__title {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: var(--title-color);
+        }
+
+        .contact__data {
+            color: var(--text-color);
+            font-size: var(--normal-font-size);
+        }
+
+        .contact__socials {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .contact__social {
+            width: 50px;
+            height: 50px;
+            background: var(--first-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.25rem;
+            transition: all 0.3s ease;
+        }
+
+        .contact__social:hover {
+            background: var(--first-color-alt);
+            transform: translateY(-5px);
+        }
+
+        /* Footer */
+        .footer {
+            padding: 3rem 0;
+            text-align: center;
+            border-top: 1px solid var(--first-color-alt-2);
+        }
+
+        .footer__copy {
+            color: var(--text-color);
+            font-size: var(--normal-font-size);
+        }
+
+        .footer__copy span {
+            color: var(--first-color);
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 0.5rem;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--body-color);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--first-color);
+            border-radius: 0.25rem;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--first-color-alt);
+        }
+
+        /* Responsive */
+        @media screen and (max-width: 1150px) {
+            .nav__list {
+                display: none;
+            }
+
+            .nav__toggle {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="#" class="nav__logo">Prince<span>.</span></a>
+            <ul class="nav__list">
+                <li><a href="#home" class="nav__link active">Home</a></li>
+                <li><a href="#about" class="nav__link">About</a></li>
+                <li><a href="#projects" class="nav__link">Projects</a></li>
+                <li><a href="#experience" class="nav__link">Experience</a></li>
+                <li><a href="#skills" class="nav__link">Skills</a></li>
+                <li><a href="#contact" class="nav__link">Contact</a></li>
+            </ul>
+            <div class="nav__toggle">
+                <span>☰</span>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main">
+        <!-- Home Section -->
+        <section class="home section" id="home">
+            <div class="container grid home__container">
+                <div class="home__content">
+                    <span class="home__greeting">Hello, I'm</span>
+                    <h1 class="home__title">Prince Jeshurun<br><span>EE Dass</span></h1>
+                    <p class="home__description">
+                        Result-oriented Computer Science graduate with CGPA 3.86, specializing in Data Analytics, Cloud Computing, and Machine Learning. PETRONAS Scholarship recipient with 13-time Dean's List recognition.
+                    </p>
+                    <div class="home__buttons">
+                        <a href="#contact" class="button button--primary">Contact Me</a>
+                        <a href="#projects" class="button button--outline">View Projects</a>
+                    </div>
+                </div>
+                <div class="home__image">
+                    <div class="blob">
+                        <div class="home__image-text">CS Graduate<br>3.86 CGPA</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section class="about section" id="about">
+            <div class="container">
+                <h2 class="section__title">About <span>Me</span></h2>
+                <div class="grid about__container">
+                    <div class="about__data">
+                        <p class="about__description">
+                            I'm a Bachelor of Computer Science graduate from Universiti Teknologi PETRONAS with a CGPA of 3.86, majoring in Data Analytics and minoring in Financial Management. A PETRONAS Education Sponsorship recipient, I've maintained consistent presence on the Dean's List from September 2021 to September 2025.
+                        </p>
+                        <p class="about__description">
+                            My journey spans research in AI/ML at the Institute of Emerging Digital Technologies, infrastructure internships at SLB, and hackathon championships. I thrive on solving real-world problems through technology, from developing deep learning systems for wildlife conservation to automating enterprise workflows.
+                        </p>
+                    </div>
+                    <div class="about__info">
+                        <div class="about__box">
+                            <span class="about__title">Experience</span>
+                            <span class="about__subtitle">2+ Years</span>
+                        </div>
+                        <div class="about__box">
+                            <span class="about__title">Projects</span>
+                            <span class="about__subtitle">15+ Completed</span>
+                        </div>
+                        <div class="about__box">
+                            <span class="about__title">Awards</span>
+                            <span class="about__subtitle">10+ Won</span>
+                        </div>
+                        <div class="about__box">
+                            <span class="about__title">Location</span>
+                            <span class="about__subtitle">Malaysia</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section class="experience section" id="experience">
+            <div class="container">
+                <h2 class="section__title">Work <span>Experience</span></h2>
+                <div class="experience__container">
+                    <div class="experience__card">
+                        <div class="experience__header">
+                            <h3 class="experience__title">Research Assistant</h3>
+                            <span class="experience__date">Dec 2025 – Present</span>
+                        </div>
+                        <p class="experience__company">Institute of Emerging Digital Technologies (EDIT), UTP</p>
+                        <p class="experience__description">
+                            Developing a hybrid GAN-PINN-Transformer framework to improve CO2 trapping predictions in saline aquifers. Utilizing GANs to generate synthetic seismic data while integrating PINNs to ensure adherence to physical laws. Currently refining the research scope and preprocessing ground-truth datasets.
+                        </p>
+                    </div>
+                    <div class="experience__card">
+                        <div class="experience__header">
+                            <h3 class="experience__title">Infrastructure Intern</h3>
+                            <span class="experience__date">May 2024 – Dec 2024</span>
+                        </div>
+                        <p class="experience__company">GBS Digital, SLB</p>
+                        <p class="experience__description">
+                            Completed an 8-month internship developing and deploying a Power BI access audit solution, automating manual processes to monitor permissions for over 500 workspaces using Azure and Power Automate. Managed ETL pipelines, built dashboards, and collaborated in Agile sprints.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section class="projects section" id="projects">
+            <div class="container">
+                <h2 class="section__title">My <span>Projects</span></h2>
+                <div class="grid projects__container">
+                    <div class="projects__card">
+                        <div class="projects__image">🐕</div>
+                        <div class="projects__content">
+                            <h3 class="projects__title">Biometric Dog Re-identification</h3>
+                            <p class="projects__role">Final Year Project • Project Lead</p>
+                            <div class="projects__tags">
+                                <span class="projects__tag">Python</span>
+                                <span class="projects__tag">YOLOv11</span>
+                                <span class="projects__tag">FaceNet</span>
+                                <span class="projects__tag">Next.js</span>
+                            </div>
+                            <p class="projects__description">
+                                Deep learning system to detect and re-identify individual dogs from images for rabies control and population monitoring in Thailand. Engineered two-stage pipeline with 168,000+ images.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="projects__card">
+                        <div class="projects__image">🏆</div>
+                        <div class="projects__content">
+                            <h3 class="projects__title">PETROBOTS Hackathon</h3>
+                            <p class="projects__role">Champion • IoT Lead</p>
+                            <div class="projects__tags">
+                                <span class="projects__tag">ESP32</span>
+                                <span class="projects__tag">C++</span>
+                                <span class="projects__tag">IoT</span>
+                            </div>
+                            <p class="projects__description">
+                                Architected and programmed IoT component of smart waste management solution using ESP32, enabling real-time data transmission critical to team's 1st place victory.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="projects__card">
+                        <div class="projects__image">🌍</div>
+                        <div class="projects__content">
+                            <h3 class="projects__title">Invent for the Planet</h3>
+                            <p class="projects__role">Top 6 • Team Lead</p>
+                            <div class="projects__tags">
+                                <span class="projects__tag">Python</span>
+                                <span class="projects__tag">Google Cloud</span>
+                                <span class="projects__tag">Power BI</span>
+                            </div>
+                            <p class="projects__description">
+                                Led team of 5 to Top 6 finish, developing proof-of-concept in 48 hours. Built Python backend on Google Cloud and Power BI dashboard for methane emission data.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="projects__card">
+                        <div class="projects__image">📱</div>
+                        <div class="projects__content">
+                            <h3 class="projects__title">Housemate App</h3>
+                            <p class="projects__role">Technical Assistant</p>
+                            <div class="projects__tags">
+                                <span class="projects__tag">Kotlin</span>
+                                <span class="projects__tag">Android</span>
+                                <span class="projects__tag">IoT</span>
+                            </div>
+                            <p class="projects__description">
+                                Assisted in development of Kotlin-based Android application providing features supplementing IoT-focused business operations.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="projects__card">
+                        <div class="projects__image">🏙️</div>
+                        <div class="projects__content">
+                            <h3 class="projects__title">JomHack Hackathon</h3>
+                            <p class="projects__role">Consolation • Joint Lead</p>
+                            <div class="projects__tags">
+                                <span class="projects__tag">Next.js</span>
+                                <span class="projects__tag">PostgreSQL</span>
+                                <span class="projects__tag">Telegram</span>
+                            </div>
+                            <p class="projects__description">
+                                Rapidly ideated smart city solution in 48 hours using Google Cloud, Google Maps API, IoT prototype, Next.js, Telegram, and PostgreSQL.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="projects__card">
+                        <div class="projects__image">🔬</div>
+                        <div class="projects__content">
+                            <h3 class="projects__title">CO2 Trapping Framework</h3>
+                            <p class="projects__role">Research • EDIT</p>
+                            <div class="projects__tags">
+                                <span class="projects__tag">GANs</span>
+                                <span class="projects__tag">PINNs</span>
+                                <span class="projects__tag">Transformers</span>
+                            </div>
+                            <p class="projects__description">
+                                Hybrid deep learning framework combining GANs for synthetic seismic data generation, PINNs for physics-based constraints, and Transformers for CO2 predictions.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section class="skills section" id="skills">
+            <div class="container">
+                <h2 class="section__title">My <span>Skills</span></h2>
+                <div class="grid skills__container">
+                    <div class="skills__card">
+                        <div class="skills__icon">💻</div>
+                        <h3 class="skills__title">Programming</h3>
+                        <div class="skills__list">
+                            <div class="skills__item">
+                                <span>Python</span>
+                                <span class="skills__level advanced">Advanced</span>
+                            </div>
+                            <div class="skills__item">
+                                <span>C++</span>
+                                <span class="skills__level intermediate">Intermediate</span>
+                            </div>
+                            <div class="skills__item">
+                                <span>SQL</span>
+                                <span class="skills__level intermediate">Intermediate</span>
+                            </div>
+                            <div class="skills__item">
+                                <span>Java</span>
+                                <span class="skills__level novice">Novice</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skills__card">
+                        <div class="skills__icon">☁️</div>
+                        <h3 class="skills__title">Cloud & DevOps</h3>
+                        <div class="skills__list">
+                            <div class="skills__item">
+                                <span>Microsoft Azure</span>
+                                <span class="skills__level intermediate">Intermediate</span>
+                            </div>
+                            <div class="skills__item">
+                                <span>Google Cloud</span>
+                                <span class="skills__level novice">Novice</span>
+                            </div>
+                            <div class="skills__item">
+                                <span>AWS</span>
+                                <span class="skills__level novice">Novice</span>
+                            </div>
+                            <div class="skills__item">
+                                <span>Firebase</span>
+                                <span class="skills__level novice">Novice</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skills__card">
+                        <div class="skills__icon">📊</div>
+                        <h3 class="skills__title">Data & Analytics</h3>
+                        <div class="skills__list">
+                            <div class="skills__item">
+                                <span>Power BI</span>
+                                <span class="skills__level intermediate">Intermediate</span>
+                            </div>
+                            <div class="skills__item">
+                                <span>Power Automate</span>
+                                <span class="skills__level intermediate">Intermediate</span>
+                            </div>
+                            <div class="skills__item">
+                                <span>PowerApps</span>
+                                <span class="skills__level intermediate">Intermediate</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="skills__card">
+                        <div class="skills__icon">🛠️</div>
+                        <h3 class="skills__title">Tools & Frameworks</h3>
+                        <div class="skills__list">
+                            <div class="skills__item">
+                                <span>Flutter</span>
+                                <span class="skills__level novice">Novice</span>
+                            </div>
+                            <div class="skills__item">
+                                <span>Git</span>
+                                <span class="skills__level novice">Novice</span>
+                            </div>
+                            <div class="skills__item">
+                                <span>PowerShell</span>
+                                <span class="skills__level intermediate">Intermediate</span>
+                            </div>
+                            <div class="skills__item">
+                                <span>Microsoft Office</span>
+                                <span class="skills__level advanced">Advanced</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section class="contact section" id="contact">
+            <div class="container">
+                <h2 class="section__title">Get In <span>Touch</span></h2>
+                <div class="grid contact__container">
+                    <div class="contact__info">
+                        <p style="color: var(--text-color); font-size: 1.1rem; line-height: 1.8;">
+                            I'm currently seeking fresh graduate positions in Cloud Computing, Data Science, or Machine Learning. Feel free to reach out — I'd love to connect!
+                        </p>
+                    </div>
+                    <div class="grid skills__container">
+                        <div class="contact__card">
+                            <div class="contact__icon">📧</div>
+                            <h3 class="contact__title">Email</h3>
+                            <p class="contact__data">princejeshurundass@gmail.com</p>
+                        </div>
+                        <div class="contact__card">
+                            <div class="contact__icon">📍</div>
+                            <h3 class="contact__title">Location</h3>
+                            <p class="contact__data">Beranang, Selangor, Malaysia</p>
+                        </div>
+                        <div class="contact__card">
+                            <div class="contact__icon">📱</div>
+                            <h3 class="contact__title">Phone</h3>
+                            <p class="contact__data">+60 19-238 1723</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact__socials">
+                    <a href="https://github.com/princejeshurun17" target="_blank" class="contact__social" aria-label="GitHub">GH</a>
+                    <a href="https://linkedin.com/in/princejeshurun" target="_blank" class="contact__social" aria-label="LinkedIn">IN</a>
+                    <a href="https://princejeshurun.com" target="_blank" class="contact__social" aria-label="Website">WEB</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p class="footer__copy">© 2026 Prince Jeshurun. Made with <span>♥</span> & Purple</p>
+        </div>
+    </footer>
+
+    <script>
+        // Header scroll effect
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Active nav link
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav__link');
+
+        window.addEventListener('scroll', () => {
+            const scrollY = window.scrollY;
+            sections.forEach(section => {
+                const sectionHeight = section.offsetHeight;
+                const sectionTop = section.offsetTop - 100;
+                const sectionId = section.getAttribute('id');
+                if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${sectionId}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        });
+
+        // Mobile menu toggle
+        const navToggle = document.querySelector('.nav__toggle');
+        const navList = document.querySelector('.nav__list');
+
+        navToggle.addEventListener('click', () => {
+            if (navList.style.display === 'flex') {
+                navList.style.display = 'none';
+            } else {
+                navList.style.display = 'flex';
+                navList.style.flexDirection = 'column';
+                navList.style.position = 'absolute';
+                navList.style.top = 'var(--header-height)';
+                navList.style.left = '0';
+                navList.style.right = '0';
+                navList.style.background = 'var(--body-color)';
+                navList.style.padding = '2rem';
+                navList.style.boxShadow = '0 10px 30px rgba(0,0,0,0.3)';
+            }
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                    navList.style.display = '';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
