@@ -172,14 +172,7 @@
             cursor: pointer;
         }
 
-        @media screen and (max-width: 768px) {
-            .nav__list {
-                gap: 1.5rem;
-                font-size: 0.875rem;
-            }
-        }
-
-        /* Home Section */
+        /* Responsive */
         .home {
             min-height: 100vh;
             display: flex;
@@ -703,7 +696,16 @@
             color: var(--first-color);
         }
 
-        /* Scrollbar */
+        /* Responsive */
+        @media screen and (max-width: 1150px) {
+            .nav__list {
+                display: none;
+            }
+
+            .nav__toggle {
+                display: block;
+            }
+        }
         ::-webkit-scrollbar {
             width: 0.5rem;
         }
