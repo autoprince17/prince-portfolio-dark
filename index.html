@@ -150,6 +150,8 @@
         .nav__list {
             display: flex;
             gap: 2rem;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
         }
 
         .nav__link {
@@ -168,6 +170,13 @@
             font-size: 1.5rem;
             color: var(--title-color);
             cursor: pointer;
+        }
+
+        @media screen and (max-width: 768px) {
+            .nav__list {
+                gap: 1.5rem;
+                font-size: 0.875rem;
+            }
         }
 
         /* Home Section */
@@ -713,15 +722,6 @@
         }
 
         /* Responsive */
-        @media screen and (max-width: 1150px) {
-            .nav__list {
-                display: none;
-            }
-
-            .nav__toggle {
-                display: block;
-            }
-        }
     </style>
 </head>
 <body>
