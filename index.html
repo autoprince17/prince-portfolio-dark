@@ -280,7 +280,7 @@
         .home__image {
             display: block;
             position: relative;
-            margin-top: 2rem;
+            margin-top: 1rem;
         }
 
         @media screen and (min-width: 1150px) {
@@ -292,22 +292,22 @@
 
         .profile-wrapper {
             position: relative;
-            width: 280px;
-            height: 280px;
+            width: 320px;
+            height: 320px;
             margin: 0 auto;
         }
 
         @media screen and (min-width: 768px) {
             .profile-wrapper {
-                width: 350px;
-                height: 350px;
+                width: 420px;
+                height: 420px;
             }
         }
 
         @media screen and (min-width: 1150px) {
             .profile-wrapper {
-                width: 400px;
-                height: 400px;
+                width: 500px;
+                height: 500px;
             }
         }
 
@@ -333,26 +333,61 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 340px;
-            height: 340px;
-            background: radial-gradient(circle, rgba(168, 85, 247, 0.4) 0%, rgba(168, 85, 247, 0.1) 40%, transparent 70%);
-            border-radius: 20px;
-            filter: blur(50px);
+            width: 380px;
+            height: 380px;
+            background: radial-gradient(circle, rgba(168, 85, 247, 0.6) 0%, rgba(168, 85, 247, 0.25) 35%, rgba(168, 85, 247, 0.1) 55%, transparent 75%);
+            border-radius: 50%;
+            filter: blur(45px);
             z-index: -1;
             animation: glow 4s ease-in-out infinite alternate;
         }
 
+        .profile-glow-ring {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 280px;
+            height: 280px;
+            border: 2px solid rgba(168, 85, 247, 0.3);
+            border-radius: 50%;
+            box-shadow: 0 0 30px rgba(168, 85, 247, 0.4), inset 0 0 20px rgba(168, 85, 247, 0.2);
+            z-index: -1;
+            animation: pulse 3s ease-in-out infinite;
+        }
+
         @media screen and (min-width: 768px) {
             .profile-glow {
-                width: 420px;
-                height: 420px;
+                width: 480px;
+                height: 480px;
+            }
+
+            .profile-glow-ring {
+                width: 360px;
+                height: 360px;
             }
         }
 
         @media screen and (min-width: 1150px) {
             .profile-glow {
-                width: 500px;
-                height: 500px;
+                width: 580px;
+                height: 580px;
+            }
+
+            .profile-glow-ring {
+                width: 440px;
+                height: 440px;
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 0.6;
+                transform: translate(-50%, -50%) scale(1);
+            }
+            50% {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1.05);
             }
         }
 
@@ -763,6 +798,7 @@
                 <div class="home__image">
                     <div class="profile-wrapper">
                         <div class="profile-glow"></div>
+                        <div class="profile-glow-ring"></div>
                         <img src="profile.png" alt="Prince Jeshurun" class="profile-image">
                     </div>
                 </div>
